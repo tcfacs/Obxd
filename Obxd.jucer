@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="pNbAgx" name="Obxd" projectType="audioplug" version="1.0.0"
+<JUCERPROJECT id="pNbAgx" name="Obxd" projectType="audioplug" version="0.1.0"
               bundleIdentifier="com.Datsounds.Obxd" buildVST="1" buildAU="1"
               pluginName="Obxd" pluginDesc="Obxd" pluginManufacturer="Datsounds"
-              pluginManufacturerCode="Dats" pluginCode="Obxd" pluginChannelConfigs="{0, 1}, {0, 2}"
+              pluginManufacturerCode="Dats" pluginCode="Obxd" pluginChannelConfigs="{0, 2}"
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
               pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="ObxdAU" pluginRTASCategory="" aaxIdentifier="com.Datsounds.Obxd"
