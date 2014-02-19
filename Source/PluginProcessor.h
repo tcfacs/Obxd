@@ -39,6 +39,8 @@ public:
 	
 	int lastMovedController,lastUsedParameter;
 
+  Random rnd;
+
 	MidiMessage* nextMidi,*midiMsg;
 	MidiMap bindings;
 	bool midiControlledParamSet;
