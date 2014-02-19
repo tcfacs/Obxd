@@ -468,7 +468,7 @@ public:
 	{
 		for(int i = 0 ; i < synth->MAX_VOICES;i++)
 		{
-			synth->voices[i]->filterDrive = linsc(param,0.01,0.7);
+//			synth->voices[i]->filterDrive = linsc(param,0.01,0.7);
 		}
 	}
 	void processFilterEnvelopeAmt(float param)
