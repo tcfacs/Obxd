@@ -22,6 +22,15 @@
   ==============================================================================
 */
 
+static int getAllowedTextureSize (int x)
+{
+   #if JUCE_OPENGL_ALLOW_NON_POWER_OF_TWO_TEXTURES
+    return x;
+   #else
+    return nextPowerOfTwo (x);
+   #endif
+}
+
 OpenGLTexture::OpenGLTexture()
     : textureID (0), width (0), height (0), ownerContext (nullptr)
 {
@@ -65,8 +74,8 @@ void OpenGLTexture::create (const int w, const int h, const void* pixels, GLenum
     glPixelStorei (GL_UNPACK_ALIGNMENT, 1);
     JUCE_CHECK_OPENGL_ERROR
 
-    width  = nextPowerOfTwo (w);
-    height = nextPowerOfTwo (h);
+    width  = getAllowedTextureSize (w);
+    height = getAllowedTextureSize (h);
 
     const GLint internalformat = type == GL_ALPHA ? GL_ALPHA : GL_RGBA;
 
@@ -101,7 +110,15 @@ struct Flipper
             PixelARGB* const dst = (PixelARGB*) (dataCopy + w * (h - 1 - y));
 
             for (int x = 0; x < w; ++x)
+            {
+               #if JUCE_ANDROID
+                PixelType s (src[x]);
+                dst[x].setARGB (s.getAlpha(), s.getBlue(), s.getGreen(), s.getRed());
+               #else
                 dst[x].set (src[x]);
+               #endif
+            }
+
 
             srcData += lineStride;
         }

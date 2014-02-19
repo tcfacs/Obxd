@@ -102,6 +102,10 @@
  //#define JUCE_PLUGINHOST_VST
 #endif
 
+#ifndef    JUCE_PLUGINHOST_VST3
+ //#define JUCE_PLUGINHOST_VST3
+#endif
+
 #ifndef    JUCE_PLUGINHOST_AU
  //#define JUCE_PLUGINHOST_AU
 #endif
@@ -123,6 +127,10 @@
 
 #ifndef    JUCE_DONT_AUTOLINK_TO_WIN32_LIBRARIES
  //#define JUCE_DONT_AUTOLINK_TO_WIN32_LIBRARIES
+#endif
+
+#ifndef    JUCE_INCLUDE_ZLIB_CODE
+ //#define JUCE_INCLUDE_ZLIB_CODE
 #endif
 
 //==============================================================================
@@ -162,6 +170,10 @@
  //#define JUCE_WEB_BROWSER
 #endif
 
+#ifndef    JUCE_ENABLE_LIVE_CONSTANT_EDITOR
+ //#define JUCE_ENABLE_LIVE_CONSTANT_EDITOR
+#endif
+
 //==============================================================================
 // juce_video flags:
 
@@ -188,6 +200,9 @@
 #ifndef  JucePlugin_Build_VST
  #define JucePlugin_Build_VST              1
 #endif
+#ifndef  JucePlugin_Build_VST3
+ #define JucePlugin_Build_VST3             0
+#endif
 #ifndef  JucePlugin_Build_AU
  #define JucePlugin_Build_AU               1
 #endif
@@ -206,8 +221,14 @@
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Datsounds"
 #endif
+#ifndef  JucePlugin_ManufacturerWebsite
+ #define JucePlugin_ManufacturerWebsite    "www.yourcompany.com"
+#endif
+#ifndef  JucePlugin_ManufacturerEmail
+ #define JucePlugin_ManufacturerEmail      "support@yourcompany.com"
+#endif
 #ifndef  JucePlugin_ManufacturerCode
- #define JucePlugin_ManufacturerCode       '2DaT'
+ #define JucePlugin_ManufacturerCode       'Dats'
 #endif
 #ifndef  JucePlugin_PluginCode
  #define JucePlugin_PluginCode             'Obxd'
@@ -219,7 +240,7 @@
  #define JucePlugin_MaxNumOutputChannels   2
 #endif
 #ifndef  JucePlugin_PreferredChannelConfigurations
- #define JucePlugin_PreferredChannelConfigurations  {1, 1}, {2, 2}
+ #define JucePlugin_PreferredChannelConfigurations  {0, 1}, {0, 2}
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                1
@@ -249,10 +270,10 @@
  #define JucePlugin_VSTUniqueID            JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_VSTCategory
- #define JucePlugin_VSTCategory            kPlugCategEffect
+ #define JucePlugin_VSTCategory            kPlugCategSynth
 #endif
 #ifndef  JucePlugin_AUMainType
- #define JucePlugin_AUMainType             kAudioUnitType_Effect
+ #define JucePlugin_AUMainType             kAudioUnitType_MusicDevice
 #endif
 #ifndef  JucePlugin_AUSubType
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
@@ -267,10 +288,10 @@
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
- #define JucePlugin_CFBundleIdentifier     com.yourcompany.Obxd
+ #define JucePlugin_CFBundleIdentifier     com.Datsounds.Obxd
 #endif
 #ifndef  JucePlugin_RTASCategory
- #define JucePlugin_RTASCategory           ePlugInCategory_None
+ #define JucePlugin_RTASCategory           ePlugInCategory_SWGenerators
 #endif
 #ifndef  JucePlugin_RTASManufacturerCode
  #define JucePlugin_RTASManufacturerCode   JucePlugin_ManufacturerCode
@@ -285,7 +306,7 @@
  #define JucePlugin_RTASDisableMultiMono   0
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.yourcompany.Obxd
+ #define JucePlugin_AAXIdentifier          com.Datsounds.Obxd
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode

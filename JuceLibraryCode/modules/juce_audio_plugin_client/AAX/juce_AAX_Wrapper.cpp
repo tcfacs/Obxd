@@ -743,6 +743,9 @@ struct AAXClasses
 
             midiBuffer.clear();
 
+            (void) midiNodeIn;
+            (void) midiNodesOut;
+
            #if JucePlugin_WantsMidiInput
             {
                 AAX_CMidiStream* const midiStream = midiNodeIn->GetNodeBuffer();
@@ -928,6 +931,7 @@ struct AAXClasses
         // This value needs to match the RTAS wrapper's Type ID, so that
         // the host knows that the RTAS/AAX plugins are equivalent.
         properties->AddProperty (AAX_eProperty_PlugInID_Native,     'jcaa' + channelConfigIndex);
+        properties->AddProperty (AAX_eProperty_PlugInID_AudioSuite, 'jyaa' + channelConfigIndex);
 
         check (desc.AddProcessProc_Native (algorithmProcessCallback, properties));
     }
